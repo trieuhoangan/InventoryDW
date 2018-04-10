@@ -12,9 +12,10 @@ CREATE TABLE [dbo].[ProductDimension]
     [ProductKey] [int] identity(1,1) NOT NULL,
     [ProductAltKey] [nvarchar](255) NOT NULL,
     [ProductName] [nvarchar](255) NULL,
-    [ProductDescription] [nvarchar](100) NULL,
+    [ProductType] [int] NULL,
     [ProductCategoryName] [nvarchar](255) NULL,
     [ProductValue] [int] NULL,
+    [ProductUnit] [nvarchar](255) null,
     [ProductQuantity] [int] not null,
 
 ) on [PRIMARY];

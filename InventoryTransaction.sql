@@ -17,6 +17,7 @@ CREATE TABLE [dbo].[ProductDimension]
     [ProductClass] [nvarchar](255) null,
     [ProductModel] [int] null,
     [ProductValue] [int] NULL,
+    [ProductUnit] [nvarchar](255) null,
     [ProductQuantity] [int] not null,
     [ProductSource] [NVARCHAR](255) null
 ) on [PRIMARY];

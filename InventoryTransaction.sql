@@ -12,12 +12,13 @@ CREATE TABLE [dbo].[ProductDimension]
     [ProductKey] [int] identity(1,1) NOT NULL,
     [ProductAltKey] [nvarchar](255) NOT NULL,
     [ProductName] [nvarchar](255) NULL,
-    [ProductType] [int] NULL,
+    [ProductLine] [nvarchar](255) NULL,
     [ProductCategoryName] [nvarchar](255) NULL,
+    [ProductClass] [nvarchar](255) null,
+    [ProductModel] [int] null,
     [ProductValue] [int] NULL,
-    [ProductUnit] [nvarchar](255) null,
     [ProductQuantity] [int] not null,
-
+    [ProductSource] [NVARCHAR](255) null
 ) on [PRIMARY];
 
 CREATE TABLE [dbo].[WarehouseDimension]
@@ -68,13 +69,30 @@ create table [dbo].[StoreDimension]
 -- tao bang Date Dimension
 CREATE TABLE [dbo].[DateDimension]
 (
-  [DateKey] [int] NOT NULL,
-  [Dates] [DATE] NOT NULL, 
-  [DateDiscription] [NVARCHAR](255) NULL,
-  [DayOfWeek] [NVARCHAR](50) NOT NULL,
-  [CalendarQuarter] [int] null,
-  [CalendarYear] [int] ,
-  [IsHoliday] [char](1)
+  	[DateKey] int identity(1,1) not null,
+	[full_date] date NULL,
+	[day_of_week] [float] NULL,
+	[day_num_in_month] [float] NULL,
+	[day_num_overall] [float] NULL,
+	[day_name] [nvarchar](255) NULL,
+	[day_abbrev] [nvarchar](255) NULL,
+	[weekday_flag] [nvarchar](255) NULL,
+	[weekd_num_in_year] [float] NULL,
+	[week_num_of_overall] [float] NULL,
+	[week_begin_date] date NULL,
+	[week_begin_date_key] [float] NULL,
+	[month] [float] NULL,
+	[month_num_overall] [float] NULL,
+	[month_name] [nvarchar](255) NULL,
+	[month_abbrev] [nvarchar](255) NULL,
+	[quarter] [float] NULL,
+	[year] [float] NULL,
+	[year_month] [float] NULL,
+	[fiscal_month] [float] NULL,
+	[fiscal_quarter] [float] NULL,
+	[fiscal_year] [float] NULL,
+	[month_end_flag] [nvarchar](255) NULL
+
 ) ON [PRIMARY];
 
 CREATE TABLE [dbo].[WarehouseInventoryTransactionFact]
@@ -87,6 +105,7 @@ CREATE TABLE [dbo].[WarehouseInventoryTransactionFact]
     [InventoryTransactionDollarAmount] [int] NULL,
     [NumberofProduct] [int] NULL, 
     [TypeOfProduct] [int] NULL
+
 
 ) ON [PRIMARY];
 
